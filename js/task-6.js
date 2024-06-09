@@ -3,6 +3,9 @@ const createBox = document.querySelector("#boxes");
 const btnCreate = document.querySelector("button[data-create]");
 const btnDestroy = document.querySelector("button[data-destroy]");
 
+
+
+
 btnCreate.addEventListener("click", returnNumber);
 btnDestroy.addEventListener("click", destroyBoxes);
 
@@ -15,14 +18,12 @@ function returnNumber(event) {
 }
 
 function createBoxes(amount) {
-  let size = 30;
   let newBox = [];
   for (let i = 0; i < amount; i += 1) {
-    size += 10 * i;
-    const div = `<div class="box" style="display: block; margin-right: 30px; margin-bottom: 30px; background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>`;
+    let size = 30 + i*10;
+    const div = `<div class="box" style="display: block; margin-right: 44px; margin-bottom: 30px; background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>`;
     newBox.push(div);
   }
-  createBox.insertAdjacentHTML("afterbegin", newBox.join(""));
   createBox.innerHTML = newBox.join("");
 }
 
